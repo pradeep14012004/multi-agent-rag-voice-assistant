@@ -4,6 +4,7 @@ from app.ingestion import prepare_documents
 from app.vector_store import add_chunks, collection_count, reset_collection
 from app.agents import MultiAgentOrchestrator
 from app.voice import browser_voice
+from app.rag import assess_evidence, validate_citations
 
 st.set_page_config(page_title="Multi-Agent RAG Assistant", page_icon="🧠", layout="wide")
 st.title("🧠 Multi-Agent RAG Knowledge Assistant")
@@ -97,6 +98,8 @@ if submitted:
                 "question": question, "answer": result["answer"],
                 "hits": result["hits"], "intent": result["intent"],
                 "domain": domain_filter, "top_k": top_k,
+                "evidence": assess_evidence(result["hits"]),
+                "citation_validation": validate_citations(result["answer"], result["hits"]),
             })
             st.rerun()
 
@@ -106,6 +109,31 @@ if st.session_state.chat:
         with st.container(border=True):
             st.markdown(f"**You:** {item['question']}")
             st.markdown(item["answer"])
+
+            citation = item.get(
+                "citation_validation",
+                validate_citations(item["answer"], item["hits"])
+            )
+            st.markdown("#### Citation validation")
+            if citation["status"] == "valid":
+                st.success(citation["label"])
+            elif citation["status"] == "invalid":
+                st.error(citation["label"])
+            elif citation["status"] == "missing":
+                st.warning(citation["label"])
+            else:
+                st.info(citation["label"])
+
+            if citation["references"]:
+                st.caption(
+                    f"Referenced sources: {citation['valid_references']} "
+                    f"| Invalid references: {citation['invalid_references']}"
+                )
+            st.caption(
+                "Validation checks whether citation numbers match retrieved sources; "
+                "it does not verify that a source semantically supports each claim."
+            )
+
             st.caption(f"Intent: {item['intent']} · Domain: {item['domain']} · Retrieved chunks: {len(item['hits'])}")
             with st.expander(f"Retrieved evidence ({len(item['hits'])} unique chunks)"):
                 if not item["hits"]:
