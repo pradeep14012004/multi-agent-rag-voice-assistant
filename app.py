@@ -79,7 +79,7 @@ with st.form("ask_form", clear_on_submit=True):
     with col1:
         domain_filter = st.selectbox("Search domain", ["All domains", "Computer Science", "Healthcare", "Other"])
     with col2:
-        top_k = st.slider("Top-K results", min_value=1, max_value=10, value=5)
+        top_k = st.slider("Top-K results", min_value=1, max_value=10, value=3)
     submitted = st.form_submit_button("Ask", type="primary", use_container_width=True)
 
 if submitted:
