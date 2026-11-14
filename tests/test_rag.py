@@ -59,3 +59,34 @@ class EvidenceAssessmentTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CitationValidationTests(unittest.TestCase):
+    def setUp(self):
+        from app.rag import validate_citations
+        self.validate = validate_citations
+        self.hits = [{"text": "source one"}, {"text": "source two"}]
+
+    def test_valid_citation_references(self):
+        result = self.validate("Claim supported here [1] and [2].", self.hits)
+        self.assertEqual(result["status"], "valid")
+        self.assertEqual(result["valid_references"], [1, 2])
+        self.assertEqual(result["invalid_references"], [])
+
+    def test_invalid_source_number_is_flagged(self):
+        result = self.validate("Claim with unknown source [3].", self.hits)
+        self.assertEqual(result["status"], "invalid")
+        self.assertEqual(result["invalid_references"], [3])
+
+    def test_missing_citations_are_flagged_when_sources_exist(self):
+        result = self.validate("An uncited factual answer.", self.hits)
+        self.assertEqual(result["status"], "missing")
+
+    def test_no_evidence_and_no_citation_is_not_required(self):
+        result = self.validate("No relevant evidence was found.", [])
+        self.assertEqual(result["status"], "not_required")
+
+    def test_duplicate_citations_are_counted_but_unique_sources_listed(self):
+        result = self.validate("First claim [1]. Second claim [1].", self.hits)
+        self.assertEqual(result["citation_count"], 2)
+        self.assertEqual(result["valid_references"], [1])
