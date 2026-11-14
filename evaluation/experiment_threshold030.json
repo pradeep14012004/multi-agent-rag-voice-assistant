@@ -1,0 +1,255 @@
+{
+  "evaluation_method": "Keyword-based relevance proxy",
+  "retrieval_query_count": 8,
+  "retrieval_metrics": {
+    "hit_at_1": 1.0,
+    "precision_at_1": 1.0,
+    "hit_at_3": 1.0,
+    "precision_at_3": 0.5417,
+    "mrr": 1.0
+  },
+  "query_type_metrics": {
+    "factual": {
+      "total": 4,
+      "hit_at_3": 1.0
+    },
+    "procedural": {
+      "total": 3,
+      "hit_at_3": 1.0
+    },
+    "comparative": {
+      "total": 1,
+      "hit_at_3": 1.0
+    }
+  },
+  "abstention": {
+    "total": 2,
+    "correct": 2,
+    "accuracy": 1.0,
+    "results": [
+      {
+        "query": "Explain QuantumBrain-X technology.",
+        "abstained": true,
+        "retrieved_count": 0
+      },
+      {
+        "query": "What is the treatment protocol for QuantumBrain-X disease?",
+        "abstained": true,
+        "retrieved_count": 0
+      }
+    ]
+  },
+  "retrieval_results": [
+    {
+      "query": "What is supervised learning?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 3,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.8476,
+          "keyword_relevant": true,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.5254,
+          "keyword_relevant": true,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.4315,
+          "keyword_relevant": false,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        }
+      ]
+    },
+    {
+      "query": "How does a neural network learn during training?",
+      "query_type": "procedural",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 3,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.6598,
+          "keyword_relevant": true,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.4518,
+          "keyword_relevant": true,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.3436,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        }
+      ]
+    },
+    {
+      "query": "What is an operating system responsible for?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 1,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.8291,
+          "keyword_relevant": true,
+          "text": "An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users."
+        }
+      ]
+    },
+    {
+      "query": "What is unsupervised learning?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 3,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.6981,
+          "keyword_relevant": true,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.4062,
+          "keyword_relevant": false,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.3264,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        }
+      ]
+    },
+    {
+      "query": "What are the basic hand hygiene steps?",
+      "query_type": "procedural",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 1,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.6777,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        }
+      ]
+    },
+    {
+      "query": "What is the purpose of patient identification?",
+      "query_type": "factual",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 3,
+      "relevant_chunks_at_5": 3,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_observations.csv",
+          "score": 0.3916,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.348,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 3,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.3456,
+          "keyword_relevant": true,
+          "text": "le sensors, and patient monitoring systems help collect physiological information. These technologies support fitness tracking, clinical observation, and remote patient monitoring."
+        }
+      ]
+    },
+    {
+      "query": "How should care information be documented?",
+      "query_type": "procedural",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 2,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_observations.csv",
+          "score": 0.4556,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.3494,
+          "keyword_relevant": false,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        }
+      ]
+    },
+    {
+      "query": "Compare hand hygiene and patient identification.",
+      "query_type": "comparative",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 2,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.7619,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_observations.csv",
+          "score": 0.4096,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Keyword matching is only a relevance proxy.",
+    "Manual relevance assessment is required for final reporting.",
+    "Abstention evaluation checks retrieval output, not the full generated answer."
+  ]
+}

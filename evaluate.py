@@ -54,7 +54,7 @@ def evaluate():
             query,
             top_k=3,
             domain=domain,
-            min_score=0.40,
+            min_score=0.30,
         )
 
         relevant_flags = [is_relevant(hit, keywords) for hit in hits]
