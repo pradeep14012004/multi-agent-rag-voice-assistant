@@ -20,7 +20,7 @@ class EvidenceAssessmentTests(unittest.TestCase):
         self.assertEqual(result["average_score"], 0.602)
         self.assertEqual(result["supporting_chunks"], 3)
 
-    def test_moderate_evidence(self):
+    def test_limited_evidence_below_moderate_band(self):
         result = assess_evidence(
             [{"score": 0.392}, {"score": 0.348}],
             threshold=0.30,
