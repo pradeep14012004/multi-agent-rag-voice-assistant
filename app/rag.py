@@ -160,3 +160,38 @@ def extractive_answer(hits: list[dict]) -> str:
         "Configure the Groq API key for generated answers.*"
     )
     return "\n".join(lines)
+
+
+
+def validate_citations(answer: str, hits: list[dict]) -> dict:
+    """Check whether answer citation markers refer to retrieved source numbers.
+
+    This validates citation references only; it does not prove that a source
+    semantically supports the claim attached to its citation.
+    """
+    import re
+
+    references = [int(value) for value in re.findall(r"\[(\d+)\]", answer or "")]
+    available = len(hits)
+    invalid = sorted({number for number in references if number < 1 or number > available})
+    valid = sorted({number for number in references if 1 <= number <= available})
+
+    if not hits and not references:
+        status, label = "not_required", "Not required (no evidence)"
+    elif not references:
+        status, label = "missing", "No citations found"
+    elif invalid:
+        status, label = "invalid", "Invalid source references"
+    else:
+        status, label = "valid", "Citation references valid"
+
+    return {
+        "status": status,
+        "label": label,
+        "references": references,
+        "valid_references": valid,
+        "invalid_references": invalid,
+        "citation_count": len(references),
+        "available_sources": available,
+        "scope": "Checks source-number references only, not whether sources entail the claims.",
+    }
