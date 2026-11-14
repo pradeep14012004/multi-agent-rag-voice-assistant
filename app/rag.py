@@ -1,4 +1,3 @@
-
 from app.config import GROQ_API_KEY, GROQ_MODEL, MIN_RELEVANCE_SCORE
 
 
@@ -7,6 +6,58 @@ ABSTENTION = (
     "indexed knowledge base. Please upload a document covering "
     "this topic or ask about information in your documents."
 )
+
+# These are display bands for retrieval evidence, not calibrated answer
+# probabilities. The embedding similarity score is not a correctness probability.
+STRONG_EVIDENCE_SCORE = 0.70
+MODERATE_EVIDENCE_SCORE = 0.40
+
+
+def assess_evidence(
+    hits: list[dict],
+    threshold: float | None = None,
+) -> dict:
+    """Summarize retrieved evidence using transparent heuristic score bands.
+
+    The strongest cosine-similarity score is used as the evidence-strength
+    indicator. Average score and supporting chunk count provide context.
+    This is not a calibrated probability that the generated answer is correct.
+    """
+    active_threshold = MIN_RELEVANCE_SCORE if threshold is None else threshold
+    relevant_hits = [
+        hit for hit in hits
+        if float(hit.get("score", 0.0)) >= active_threshold
+    ]
+
+    if not relevant_hits:
+        return {
+            "level": "insufficient",
+            "label": "Insufficient evidence",
+            "score": None,
+            "average_score": None,
+            "supporting_chunks": 0,
+            "threshold": round(active_threshold, 3),
+        }
+
+    scores = [float(hit.get("score", 0.0)) for hit in relevant_hits]
+    strongest_score = max(scores)
+    average_score = sum(scores) / len(scores)
+
+    if strongest_score >= STRONG_EVIDENCE_SCORE:
+        level, label = "strong", "Strong evidence"
+    elif strongest_score >= MODERATE_EVIDENCE_SCORE:
+        level, label = "moderate", "Moderate evidence"
+    else:
+        level, label = "limited", "Limited evidence"
+
+    return {
+        "level": level,
+        "label": label,
+        "score": round(strongest_score, 3),
+        "average_score": round(average_score, 3),
+        "supporting_chunks": len(relevant_hits),
+        "threshold": round(active_threshold, 3),
+    }
 
 
 def generate_answer(
@@ -35,11 +86,11 @@ def generate_answer(
         context_parts.append(
             f"[{i}] {metadata.get('filename', 'document')} | "
             f"page {metadata.get('page', '?')} | "
-            f"domain: {metadata.get('domain', 'unknown')}\n"
+            f"domain: {metadata.get('domain', 'unknown')}\\n"
             f"{hit['text']}"
         )
 
-    context = "\n\n".join(context_parts)
+    context = "\\n\\n".join(context_parts)
 
     if not GROQ_API_KEY:
         return extractive_answer(relevant_hits)
@@ -69,10 +120,10 @@ def generate_answer(
                 {
                     "role": "user",
                     "content": (
-                        f"Conversation memory (not factual evidence):\n"
-                        f"{memory or '(none)'}\n\n"
-                        f"Retrieved evidence:\n{context}\n\n"
-                        f"Question: {question}\n\n"
+                        f"Conversation memory (not factual evidence):\\n"
+                        f"{memory or '(none)'}\\n\\n"
+                        f"Retrieved evidence:\\n{context}\\n\\n"
+                        f"Question: {question}\\n\\n"
                         "Answer using retrieved evidence only."
                     )
                 }
@@ -93,7 +144,7 @@ def generate_answer(
 
         return (
             "Groq generation is currently unavailable. "
-            "Showing retrieved evidence instead.\n\n"
+            "Showing retrieved evidence instead.\\n\\n"
             + extractive_answer(relevant_hits)
         )
 
@@ -111,14 +162,14 @@ def extractive_answer(hits: list[dict]) -> str:
         metadata = hit.get("metadata", {})
 
         lines.append(
-            f"\n**[{i}] {metadata.get('filename', 'document')} "
-            f"— page {metadata.get('page', '?')}**\n"
+            f"\\n**[{i}] {metadata.get('filename', 'document')} "
+            f"— page {metadata.get('page', '?')}**\\n"
             f"{hit['text'][:1100]}"
         )
 
     lines.append(
-        "\n*This is an extractive response. "
+        "\\n*This is an extractive response. "
         "Configure the Groq API key for generated answers.*"
     )
 
-    return "\n".join(lines)
+    return "\\n".join(lines)
