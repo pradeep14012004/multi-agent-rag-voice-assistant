@@ -1,0 +1,72 @@
+[
+  {
+    "query": "What is supervised learning?",
+    "query_type": "factual",
+    "domain": "Computer Science",
+    "expected_keywords": ["supervised learning", "labelled examples"],
+    "expected_relevant": true
+  },
+  {
+    "query": "How does a neural network learn during training?",
+    "query_type": "procedural",
+    "domain": "Computer Science",
+    "expected_keywords": ["neural network", "weights", "training"],
+    "expected_relevant": true
+  },
+  {
+    "query": "What is an operating system responsible for?",
+    "query_type": "factual",
+    "domain": "Computer Science",
+    "expected_keywords": ["operating system", "process management", "memory management"],
+    "expected_relevant": true
+  },
+  {
+    "query": "What is unsupervised learning?",
+    "query_type": "factual",
+    "domain": "Computer Science",
+    "expected_keywords": ["unsupervised learning", "without target labels"],
+    "expected_relevant": true
+  },
+  {
+    "query": "What are the basic hand hygiene steps?",
+    "query_type": "procedural",
+    "domain": "Healthcare",
+    "expected_keywords": ["hand hygiene", "soap", "water"],
+    "expected_relevant": true
+  },
+  {
+    "query": "What is the purpose of patient identification?",
+    "query_type": "factual",
+    "domain": "Healthcare",
+    "expected_keywords": ["patient identification", "identifiers", "patient"],
+    "expected_relevant": true
+  },
+  {
+    "query": "How should care information be documented?",
+    "query_type": "procedural",
+    "domain": "Healthcare",
+    "expected_keywords": ["documentation", "record care information"],
+    "expected_relevant": true
+  },
+  {
+    "query": "Compare hand hygiene and patient identification.",
+    "query_type": "comparative",
+    "domain": "Healthcare",
+    "expected_keywords": ["hand hygiene", "patient identification"],
+    "expected_relevant": true
+  },
+  {
+    "query": "Explain QuantumBrain-X technology.",
+    "query_type": "unanswerable",
+    "domain": "All domains",
+    "expected_keywords": [],
+    "expected_relevant": false
+  },
+  {
+    "query": "What is the treatment protocol for QuantumBrain-X disease?",
+    "query_type": "unanswerable",
+    "domain": "All domains",
+    "expected_keywords": [],
+    "expected_relevant": false
+  }
+]

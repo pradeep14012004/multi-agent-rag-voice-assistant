@@ -1,0 +1,9 @@
+COMPUTER SCIENCE: MACHINE LEARNING BASICS
+
+Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression.
+
+A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples.
+
+An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users.
+
+Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks.

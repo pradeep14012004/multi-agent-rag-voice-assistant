@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+chroma_db/
+.streamlit/secrets.toml
+evaluation/last_results.json
+.DS_Store

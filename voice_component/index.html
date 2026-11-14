@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+body{font-family:system-ui,sans-serif;margin:0;color:var(--text-color,#ddd);background:transparent}
+.wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}button{border:1px solid #777;border-radius:8px;padding:9px 13px;background:#262626;color:inherit;cursor:pointer;font-size:14px}button:disabled{opacity:.5;cursor:not-allowed}#status{font-size:12px;opacity:.8}
+</style></head><body><div class="wrap"><button id="mic">🎙️ Start voice input</button><button id="speak">🔊 Speak latest answer</button><span id="status">Voice support requires a browser with Web Speech API (Chrome recommended).</span></div>
+<script>
+const mic=document.getElementById('mic'), speak=document.getElementById('speak'), status=document.getElementById('status');
+let recognition=null, listening=false, latestAnswer='';
+function send(value){window.parent.postMessage({isStreamlitMessage:true,type:'streamlit:setComponentValue',value},'*');}
+function ready(){window.parent.postMessage({isStreamlitMessage:true,type:'streamlit:componentReady',apiVersion:1},'*');}
+function height(){window.parent.postMessage({isStreamlitMessage:true,type:'streamlit:setFrameHeight',height:58},'*');}
+window.addEventListener('message',e=>{const d=e.data||{};if(d.type==='streamlit:render'){latestAnswer=(d.args&&d.args.answer)||'';}});
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SR){recognition=new SR();recognition.lang='en-IN';recognition.interimResults=false;recognition.continuous=false;
+recognition.onstart=()=>{listening=true;mic.textContent='⏹ Stop listening';status.textContent='Listening… speak now.';};
+recognition.onresult=e=>{const transcript=e.results[0][0].transcript;status.textContent='Recognized: '+transcript;send({transcript:transcript,nonce:Date.now()});};
+recognition.onerror=e=>{status.textContent='Voice recognition error: '+e.error;};
+recognition.onend=()=>{listening=false;mic.textContent='🎙️ Start voice input';};
+}else{mic.disabled=true;status.textContent='Speech recognition is not supported in this browser. Try Chrome and allow microphone access.';}
+mic.onclick=()=>{if(!recognition)return;if(listening)recognition.stop();else{try{recognition.start();}catch(e){status.textContent='Could not start microphone: '+e.message;}}};
+speak.onclick=()=>{if(!latestAnswer){status.textContent='Ask a question first; no answer to speak.';return;}if(!('speechSynthesis'in window)){status.textContent='Speech synthesis is not supported in this browser.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(latestAnswer.replace(/\[\d+\]/g,''));u.lang='en-IN';speechSynthesis.speak(u);status.textContent='Speaking answer…';};
+ready();height();
+</script></body></html>
