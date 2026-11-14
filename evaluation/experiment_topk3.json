@@ -11,15 +11,15 @@
   "query_type_metrics": {
     "factual": {
       "total": 4,
-      "hit_at_5": 1.0
+      "hit_at_3": 1.0
     },
     "procedural": {
       "total": 3,
-      "hit_at_5": 1.0
+      "hit_at_3": 1.0
     },
     "comparative": {
       "total": 1,
-      "hit_at_5": 1.0
+      "hit_at_3": 1.0
     }
   },
   "abstention": {

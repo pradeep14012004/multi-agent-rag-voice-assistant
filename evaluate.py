@@ -78,7 +78,7 @@ def evaluate():
 
         group = type_metrics[query_type]
         group["total"] += 1
-        group["hit_at_3"] += int(first_rank is not None and first_rank <= 5)
+        group["hit_at_3"] += int(first_rank is not None and first_rank <= 3)
 
         rows.append({
             "query": query,
