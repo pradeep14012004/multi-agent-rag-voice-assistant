@@ -7,7 +7,7 @@ from pathlib import Path
 from app.vector_store import search, collection_count
 
 ROOT = Path(__file__).resolve().parent
-K_VALUES = (1, 3, 5)
+K_VALUES = (1, 3)
 
 
 def is_relevant(hit, keywords):
@@ -39,7 +39,7 @@ def evaluate():
     precision_totals = {k: 0.0 for k in K_VALUES}
     reciprocal_ranks = []
     rows = []
-    type_metrics = defaultdict(lambda: {"total": 0, "hit_at_5": 0})
+    type_metrics = defaultdict(lambda: {"total": 0, "hit_at_3": 0})
 
     print("\nRAG RETRIEVAL EVALUATION")
     print("=" * 90)
@@ -52,7 +52,7 @@ def evaluate():
 
         hits = search(
             query,
-            top_k=5,
+            top_k=3,
             domain=domain,
             min_score=0.0,
         )
@@ -78,7 +78,7 @@ def evaluate():
 
         group = type_metrics[query_type]
         group["total"] += 1
-        group["hit_at_5"] += int(first_rank is not None and first_rank <= 5)
+        group["hit_at_3"] += int(first_rank is not None and first_rank <= 5)
 
         rows.append({
             "query": query,
@@ -127,8 +127,8 @@ def evaluate():
     print("\nQUERY-TYPE BREAKDOWN")
     for query_type, values in sorted(type_metrics.items()):
         count = values["total"]
-        rate = values["hit_at_5"] / count if count else 0
-        print(f"{query_type}: Hit@5 = {values['hit_at_5']}/{count} ({rate:.2%})")
+        rate = values["hit_at_3"] / count if count else 0
+        print(f"{query_type}: Hit@3 = {values['hit_at_3']}/{count} ({rate:.2%})")
 
     print("\nABSTENTION EVALUATION")
     abstention_rows = []
@@ -136,7 +136,7 @@ def evaluate():
     for case in abstention_cases:
         hits = search(
             case["query"],
-            top_k=5,
+            top_k=3,
             domain=case.get("domain", "All domains"),
         )
 
@@ -170,8 +170,8 @@ def evaluate():
         "query_type_metrics": {
             query_type: {
                 "total": values["total"],
-                "hit_at_5": round(
-                    values["hit_at_5"] / values["total"], 4
+                "hit_at_3": round(
+                    values["hit_at_3"] / values["total"], 4
                 ),
             }
             for query_type, values in type_metrics.items()

@@ -1,0 +1,411 @@
+{
+  "evaluation_method": "Keyword-based relevance proxy",
+  "retrieval_query_count": 8,
+  "retrieval_metrics": {
+    "hit_at_1": 1.0,
+    "precision_at_1": 1.0,
+    "hit_at_3": 1.0,
+    "precision_at_3": 0.5833,
+    "hit_at_5": 1.0,
+    "precision_at_5": 0.4,
+    "mrr": 1.0
+  },
+  "query_type_metrics": {
+    "factual": {
+      "total": 4,
+      "hit_at_5": 1.0
+    },
+    "procedural": {
+      "total": 3,
+      "hit_at_5": 1.0
+    },
+    "comparative": {
+      "total": 1,
+      "hit_at_5": 1.0
+    }
+  },
+  "abstention": {
+    "total": 2,
+    "correct": 2,
+    "accuracy": 1.0,
+    "results": [
+      {
+        "query": "Explain QuantumBrain-X technology.",
+        "abstained": true,
+        "retrieved_count": 0
+      },
+      {
+        "query": "What is the treatment protocol for QuantumBrain-X disease?",
+        "abstained": true,
+        "retrieved_count": 0
+      }
+    ]
+  },
+  "retrieval_results": [
+    {
+      "query": "What is supervised learning?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.8476,
+          "keyword_relevant": true,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.5254,
+          "keyword_relevant": true,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.4315,
+          "keyword_relevant": false,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        },
+        {
+          "rank": 4,
+          "filename": "machine_learning.txt",
+          "score": 0.372,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        },
+        {
+          "rank": 5,
+          "filename": "machine_learning.txt",
+          "score": 0.1665,
+          "keyword_relevant": false,
+          "text": "An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users."
+        }
+      ]
+    },
+    {
+      "query": "How does a neural network learn during training?",
+      "query_type": "procedural",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.6598,
+          "keyword_relevant": true,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.4518,
+          "keyword_relevant": true,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.3436,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        },
+        {
+          "rank": 4,
+          "filename": "machine_learning.txt",
+          "score": 0.261,
+          "keyword_relevant": false,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        },
+        {
+          "rank": 5,
+          "filename": "machine_learning.txt",
+          "score": 0.0631,
+          "keyword_relevant": false,
+          "text": "An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users."
+        }
+      ]
+    },
+    {
+      "query": "What is an operating system responsible for?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.8291,
+          "keyword_relevant": true,
+          "text": "An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.1786,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.1697,
+          "keyword_relevant": false,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 4,
+          "filename": "machine_learning.txt",
+          "score": 0.133,
+          "keyword_relevant": false,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        },
+        {
+          "rank": 5,
+          "filename": "machine_learning.txt",
+          "score": 0.0179,
+          "keyword_relevant": false,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        }
+      ]
+    },
+    {
+      "query": "What is unsupervised learning?",
+      "query_type": "factual",
+      "domain": "Computer Science",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "machine_learning.txt",
+          "score": 0.6981,
+          "keyword_relevant": true,
+          "text": "Unsupervised learning uses data without target labels. Clustering and dimensionality reduction are common unsupervised learning tasks."
+        },
+        {
+          "rank": 2,
+          "filename": "machine_learning.txt",
+          "score": 0.4062,
+          "keyword_relevant": false,
+          "text": "Supervised learning is a machine learning approach in which a model learns from labelled examples. Each training example contains input features and a known target label. Common supervised learning tasks include classification and regression."
+        },
+        {
+          "rank": 3,
+          "filename": "machine_learning.txt",
+          "score": 0.3264,
+          "keyword_relevant": false,
+          "text": "COMPUTER SCIENCE: MACHINE LEARNING BASICS"
+        },
+        {
+          "rank": 4,
+          "filename": "machine_learning.txt",
+          "score": 0.246,
+          "keyword_relevant": false,
+          "text": "A neural network is a model made of connected computational units called neurons. During training, the network makes predictions, calculates a loss, and updates its weights using an optimization algorithm such as gradient descent. The training process repeats over many examples."
+        },
+        {
+          "rank": 5,
+          "filename": "machine_learning.txt",
+          "score": 0.0729,
+          "keyword_relevant": false,
+          "text": "An operating system manages computer hardware and software resources. Its responsibilities include process management, memory management, file systems, device management, and providing interfaces for applications and users."
+        }
+      ]
+    },
+    {
+      "query": "What are the basic hand hygiene steps?",
+      "query_type": "procedural",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.6777,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_observations.csv",
+          "score": 0.2951,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 3,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.2401,
+          "keyword_relevant": false,
+          "text": "cumented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical guideline and must not be used as medical advice."
+        },
+        {
+          "rank": 4,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.0907,
+          "keyword_relevant": false,
+          "text": "tronic devices designed to collect health-related information from the human body.\n\nExamples include:\n- Smartwatches.\n- Fitness bands.\n- Portable ECG monitors.\n- Smart health sensors.\n\nMany wearable devices use optical sensors based on photoplethysmography (PPG) to estimate heart rate. PPG measures changes in blood volume beneath the skin using light.\n\nWearable devices can help users track heart rate, physical activity, sleep patterns, and other health indicators.\n\n### 5. Patient Monitoring Systems\n\nPatient monitoring systems are used in hospitals and healthcare facilities to observe a patient's physiological parameters.\n\nCommonly monitored parameters include:\n- Heart rate.\n- Blood oxygen saturation (SpO2).\n- Blood pressure.\n- Body temperature.\n- Respiratory rate.\n\nContinuous monitoring helps healthcare professionals identify changes in patient condition and respond when necessary.\n\n###"
+        },
+        {
+          "rank": 5,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.0521,
+          "keyword_relevant": false,
+          "text": "# HEALTHCARE KNOWLEDGE BASE\n## Topic: Heart Rate Monitoring and Patient Health\n\n### 1. Introduction to Heart Rate Monitoring\n\nHeart rate monitoring is the process of measuring the number of times a person's heart beats per minute (BPM). It is an important method of monitoring cardiovascular health and identifying changes in a person's physical condition.\n\nA normal resting heart rate for most adults is generally between 60 and 100 beats per minute. Heart rate can vary depending on age, physical activity, fitness level, stress, medication, and overall health.\n\n### 2. Purpose of Heart Rate Monitoring\n\nHeart rate monitoring serves several purposes:\n\n- Evaluating cardiovascular health.\n- Detecting unusually high or low heart rates.\n- Monitoring physical activity and exercise intensity.\n- Tracking recovery after exercise.\n- Supporting continuous patient monitoring.\n- Helping healthcare"
+        }
+      ]
+    },
+    {
+      "query": "What is the purpose of patient identification?",
+      "query_type": "factual",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_observations.csv",
+          "score": 0.3916,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.348,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 3,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.3456,
+          "keyword_relevant": true,
+          "text": "le sensors, and patient monitoring systems help collect physiological information. These technologies support fitness tracking, clinical observation, and remote patient monitoring."
+        },
+        {
+          "rank": 4,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.3165,
+          "keyword_relevant": true,
+          "text": "ure.\n- Respiratory rate.\n\nContinuous monitoring helps healthcare professionals identify changes in patient condition and respond when necessary.\n\n### 6. Heart Rate and Exercise\n\nHeart rate generally increases during physical activity because the body requires more oxygen and energy.\n\nDuring exercise, heart rate monitoring helps:\n- Estimate exercise intensity.\n- Track cardiovascular response.\n- Monitor recovery after physical activity.\n- Support fitness training.\n\nHeart rate recovery refers to how quickly the heart rate decreases after exercise.\n\n### 7. Remote Patient Monitoring\n\nRemote patient monitoring (RPM) uses digital technologies to collect patient health information outside traditional healthcare facilities.\n\nIt can use connected devices and sensors to transmit health measurements to healthcare professionals.\n\nBenefits include:\n- Monitoring patients from home.\n- Reducing the need"
+        },
+        {
+          "rank": 5,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.2895,
+          "keyword_relevant": true,
+          "text": "# HEALTHCARE KNOWLEDGE BASE\n## Topic: Heart Rate Monitoring and Patient Health\n\n### 1. Introduction to Heart Rate Monitoring\n\nHeart rate monitoring is the process of measuring the number of times a person's heart beats per minute (BPM). It is an important method of monitoring cardiovascular health and identifying changes in a person's physical condition.\n\nA normal resting heart rate for most adults is generally between 60 and 100 beats per minute. Heart rate can vary depending on age, physical activity, fitness level, stress, medication, and overall health.\n\n### 2. Purpose of Heart Rate Monitoring\n\nHeart rate monitoring serves several purposes:\n\n- Evaluating cardiovascular health.\n- Detecting unusually high or low heart rates.\n- Monitoring physical activity and exercise intensity.\n- Tracking recovery after exercise.\n- Supporting continuous patient monitoring.\n- Helping healthcare"
+        }
+      ]
+    },
+    {
+      "query": "How should care information be documented?",
+      "query_type": "procedural",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_observations.csv",
+          "score": 0.4556,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.3494,
+          "keyword_relevant": false,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 3,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.2897,
+          "keyword_relevant": false,
+          "text": "cumented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical guideline and must not be used as medical advice."
+        },
+        {
+          "rank": 4,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.2381,
+          "keyword_relevant": false,
+          "text": "ices and sensors to transmit health measurements to healthcare professionals.\n\nBenefits include:\n- Monitoring patients from home.\n- Reducing the need for some in-person visits.\n- Supporting long-term observation.\n- Helping healthcare professionals review health trends.\n\n### 8. Limitations of Wearable Monitoring\n\nWearable monitoring devices have limitations:\n\n- Measurements may be affected by movement.\n- Sensor accuracy can vary between devices.\n- Poor sensor contact can affect readings.\n- Wearable measurements do not replace professional medical diagnosis.\n- Some devices require internet connectivity and battery power.\n\n### 9. Conclusion\n\nHeart rate monitoring is an important part of cardiovascular health observation. ECG systems, wearable sensors, and patient monitoring systems help collect physiological information. These technologies support fitness tracking, clinical observation,"
+        },
+        {
+          "rank": 5,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.2377,
+          "keyword_relevant": false,
+          "text": "ure.\n- Respiratory rate.\n\nContinuous monitoring helps healthcare professionals identify changes in patient condition and respond when necessary.\n\n### 6. Heart Rate and Exercise\n\nHeart rate generally increases during physical activity because the body requires more oxygen and energy.\n\nDuring exercise, heart rate monitoring helps:\n- Estimate exercise intensity.\n- Track cardiovascular response.\n- Monitor recovery after physical activity.\n- Support fitness training.\n\nHeart rate recovery refers to how quickly the heart rate decreases after exercise.\n\n### 7. Remote Patient Monitoring\n\nRemote patient monitoring (RPM) uses digital technologies to collect patient health information outside traditional healthcare facilities.\n\nIt can use connected devices and sensors to transmit health measurements to healthcare professionals.\n\nBenefits include:\n- Monitoring patients from home.\n- Reducing the need"
+        }
+      ]
+    },
+    {
+      "query": "Compare hand hygiene and patient identification.",
+      "query_type": "comparative",
+      "domain": "Healthcare",
+      "first_relevant_rank": 1,
+      "retrieved_count": 5,
+      "relevant_chunks_at_5": 2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.7619,
+          "keyword_relevant": true,
+          "text": "HEALTHCARE: BASIC PATIENT SAFETY EDUCATION\n\nHand hygiene is an important infection prevention practice. A basic handwashing procedure includes wetting hands with clean running water, applying soap, rubbing all hand surfaces, rinsing, and drying with a clean towel. Follow the local clinical protocol for the required duration and circumstances.\n\nPatient identification helps ensure that care, medication, tests, and procedures are provided to the correct person. Healthcare workers should use the approved identifiers and institutional verification process before providing care. Do not rely only on room number or bed location.\n\nClear communication between healthcare professionals supports continuity of care. Important information should be documented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical"
+        },
+        {
+          "rank": 2,
+          "filename": "healthcare_observations.csv",
+          "score": 0.4096,
+          "keyword_relevant": true,
+          "text": "Columns: observation, description, category\nRow 1: observation: Hand hygiene; description: Wash with soap and clean running water; category: Infection prevention\nRow 2: observation: Patient identification; description: Verify approved patient identifiers before care; category: Patient safety\nRow 3: observation: Documentation; description: Record care information accurately; category: Clinical communication"
+        },
+        {
+          "rank": 3,
+          "filename": "healthcare_guidelines.txt",
+          "score": 0.2779,
+          "keyword_relevant": false,
+          "text": "cumented accurately and shared through approved clinical processes.\n\nThis sample file is educational demonstration content only. It is not a clinical guideline and must not be used as medical advice."
+        },
+        {
+          "rank": 4,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.2024,
+          "keyword_relevant": false,
+          "text": "tronic devices designed to collect health-related information from the human body.\n\nExamples include:\n- Smartwatches.\n- Fitness bands.\n- Portable ECG monitors.\n- Smart health sensors.\n\nMany wearable devices use optical sensors based on photoplethysmography (PPG) to estimate heart rate. PPG measures changes in blood volume beneath the skin using light.\n\nWearable devices can help users track heart rate, physical activity, sleep patterns, and other health indicators.\n\n### 5. Patient Monitoring Systems\n\nPatient monitoring systems are used in hospitals and healthcare facilities to observe a patient's physiological parameters.\n\nCommonly monitored parameters include:\n- Heart rate.\n- Blood oxygen saturation (SpO2).\n- Blood pressure.\n- Body temperature.\n- Respiratory rate.\n\nContinuous monitoring helps healthcare professionals identify changes in patient condition and respond when necessary.\n\n###"
+        },
+        {
+          "rank": 5,
+          "filename": "healthcare_knowledge.txt",
+          "score": 0.1611,
+          "keyword_relevant": false,
+          "text": "ure.\n- Respiratory rate.\n\nContinuous monitoring helps healthcare professionals identify changes in patient condition and respond when necessary.\n\n### 6. Heart Rate and Exercise\n\nHeart rate generally increases during physical activity because the body requires more oxygen and energy.\n\nDuring exercise, heart rate monitoring helps:\n- Estimate exercise intensity.\n- Track cardiovascular response.\n- Monitor recovery after physical activity.\n- Support fitness training.\n\nHeart rate recovery refers to how quickly the heart rate decreases after exercise.\n\n### 7. Remote Patient Monitoring\n\nRemote patient monitoring (RPM) uses digital technologies to collect patient health information outside traditional healthcare facilities.\n\nIt can use connected devices and sensors to transmit health measurements to healthcare professionals.\n\nBenefits include:\n- Monitoring patients from home.\n- Reducing the need"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Keyword matching is only a relevance proxy.",
+    "Manual relevance assessment is required for final reporting.",
+    "Abstention evaluation checks retrieval output, not the full generated answer."
+  ]
+}
